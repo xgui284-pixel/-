@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="郑帅飞的视觉设计作品集，跨境电商视觉、生活家电与 AIGC 商业视觉作品。" />
+    <title>郑帅飞 / Visual Design Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__eyebrow">VISUAL DESIGN PORTFOLIO · 2026</div>
+      <div class="hero__main">
+        <div>
+          <h1>郑帅飞</h1>
+          <p class="hero__role">视觉设计师 / Visual Designer</p>
+        </div>
+        <p class="hero__intro">聚焦跨境电商与生活家电视觉设计，擅长主图、详情页、AI 视觉生成、图片精修与排版。</p>
+      </div>
+      <div class="hero__meta">
+        <span>洲洲达科技公司 · 2025—今</span>
+        <span>13738088435 · WeChat: zsfhlb</span>
+        <span id="work-count">作品加载中…</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="gallery" id="gallery" aria-label="全部作品"></section>
+      <div class="loading" id="loading">正在加载作品…</div>
+    </main>
+
+    <footer class="footer">
+      <span>Good design shapes perception; smart strategy drives growth.</span>
+      <span>© 2026 郑帅飞</span>
+    </footer>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox__close" id="lightbox-close" aria-label="关闭">×</button>
+      <button class="lightbox__prev" id="lightbox-prev" aria-label="上一张">‹</button>
+      <figure class="lightbox__figure">
+        <img id="lightbox-image" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+      <button class="lightbox__next" id="lightbox-next" aria-label="下一张">›</button>
+    </div>
+
+    <script src="gallery-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

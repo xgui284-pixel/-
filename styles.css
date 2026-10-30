@@ -1,0 +1,198 @@
+:root {
+  --ink: #1e1b18;
+  --muted: #756d65;
+  --paper: #f8f5f0;
+  --line: #ded8d0;
+  --accent: #b27850;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, "Noto Sans SC", system-ui, sans-serif;
+}
+
+button { font: inherit; }
+
+.hero {
+  padding: 42px clamp(20px, 5vw, 76px) 34px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero__eyebrow {
+  margin-bottom: 52px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.hero__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 410px);
+  gap: 40px;
+  align-items: end;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(60px, 12vw, 160px);
+  line-height: .88;
+  letter-spacing: -.09em;
+  font-weight: 800;
+}
+
+.hero__role {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 22px);
+}
+
+.hero__intro {
+  max-width: 390px;
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 52px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+main { padding: 34px clamp(12px, 3vw, 40px) 70px; }
+
+.gallery {
+  columns: 4 250px;
+  column-gap: 14px;
+}
+
+.work {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 14px;
+  overflow: hidden;
+  background: #ebe6df;
+  cursor: zoom-in;
+  break-inside: avoid;
+}
+
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), filter .5s ease;
+}
+
+.work:hover img { transform: scale(1.025); filter: saturate(1.05); }
+
+.work__label {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  max-width: calc(100% - 20px);
+  padding: 5px 8px;
+  color: white;
+  background: rgba(25, 22, 19, .68);
+  font-size: 10px;
+  line-height: 1.25;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.work:hover .work__label, .work:focus-visible .work__label { opacity: 1; }
+
+.loading {
+  padding: 60px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px clamp(20px, 5vw, 76px) 34px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 70px;
+  background: rgba(17, 15, 13, .94);
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(92vw, 1500px);
+  max-height: 92vh;
+  margin: 0;
+}
+
+.lightbox__figure img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(92vh - 34px);
+  object-fit: contain;
+}
+
+.lightbox__figure figcaption {
+  margin-top: 12px;
+  color: rgba(255,255,255,.68);
+  font-size: 11px;
+  text-align: center;
+}
+
+.lightbox__close, .lightbox__prev, .lightbox__next {
+  position: absolute;
+  border: 0;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  opacity: .75;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.lightbox__close:hover, .lightbox__prev:hover, .lightbox__next:hover { opacity: 1; }
+.lightbox__close { top: 16px; right: 24px; font-size: 38px; font-weight: 200; }
+.lightbox__prev, .lightbox__next { top: 50%; font-size: 64px; font-weight: 200; transform: translateY(-50%); }
+.lightbox__prev { left: 22px; }
+.lightbox__next { right: 22px; }
+
+@media (max-width: 720px) {
+  .hero { padding-top: 26px; }
+  .hero__eyebrow { margin-bottom: 38px; }
+  .hero__main { display: block; }
+  .hero__intro { margin-top: 34px; }
+  .hero__meta { margin-top: 34px; }
+  .gallery { columns: 2 150px; column-gap: 8px; }
+  .work { margin-bottom: 8px; }
+  .footer { display: block; line-height: 1.8; }
+  .footer span { display: block; }
+  .lightbox { padding: 50px 36px; }
+  .lightbox__prev, .lightbox__next { font-size: 46px; }
+  .lightbox__prev { left: 5px; }
+  .lightbox__next { right: 5px; }
+}
